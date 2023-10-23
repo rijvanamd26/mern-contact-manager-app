@@ -1,8 +1,8 @@
 # mern-contact-manager-app
-Commands to run application locally
-Backend
--> cd server
--> npm run dev
-Frontend
--> cd client
--> npm start
+Commands to run application locally <br />
+Backend <br />
+cd server <br />
+npm run dev <br />
+Frontend <br />
+cd client<br />
+npm start<br />
