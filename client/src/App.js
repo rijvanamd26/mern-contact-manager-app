@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import FormTable from './components/FormTable';
+import EditFormTable from './components/EditFormTable';
 
 axios.defaults.baseURL = 'http://localhost:8000/'
 
@@ -33,7 +34,7 @@ function App() {
   }
 
   const handleSubmit = async(e)=>{
-    e.preventDefault()
+    e.preventDefault();
     const data = await axios.post("/create",formData)
     console.log(data)
     if(data.data.success){
@@ -68,6 +69,7 @@ function App() {
     const data = await axios.put("/update",editformData)
     if(data.data.success){
       alert(data.data.message)
+      setEditSection(false)
       getFetchData()
     }
     
@@ -97,13 +99,12 @@ return(
             handleSubmit={handleSubmit}
             handleOnChange={handleOnChange}
             handleClose={()=>setAddSection(false)}
-            rest={formData}
             />
           )
         }
         {
           editSection && (
-            <FormTable
+            <EditFormTable
             handleSubmit={handleUpdate}
             handleOnChange={handleEditOnChange}
             handleClose={()=>setEditSection(false)}
